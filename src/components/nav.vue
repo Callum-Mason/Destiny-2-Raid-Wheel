@@ -19,9 +19,9 @@ export default Vue.extend({
 
   data() {
     return {
-      JSONDATA: jsondata,
+      JSONDATA: jsondata
     };
-  },
+  }
 });
 </script>
 
