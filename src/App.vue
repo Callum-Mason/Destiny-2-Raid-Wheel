@@ -8,13 +8,22 @@
       <h3>Name : {{ DisadvantageName }}</h3>
       <h3>Description : {{ DisadvantageDesc }}</h3>
     </div>
-    <br>
+    <br />
     <div class="Exotic">
       <h2>Random Exotic Armor</h2>
-      <v-btn v-on:click="RandomExoticArmor('ALL')" elevation="7" rounded>Random All</v-btn>
-      <v-btn v-on:click="RandomExoticArmor('Hunter')" elevation="7" rounded>Random Hunter</v-btn>
-      <v-btn v-on:click="RandomExoticArmor('Warlock')" elevation="7" rounded>Random Warlock</v-btn>
-      <v-btn v-on:click="RandomExoticArmor('Titan')" elevation="7" rounded>Random Titan</v-btn>
+      <v-btn v-on:click="RandomExoticArmor('ALL')" elevation="7" rounded
+        >Random All</v-btn
+      >
+      <v-btn v-on:click="RandomExoticArmor('Hunter')" elevation="7" rounded
+        >Random Hunter</v-btn
+      >
+      <v-btn v-on:click="RandomExoticArmor('Warlock')" elevation="7" rounded
+        >Random Warlock</v-btn
+      >
+      <v-btn v-on:click="RandomExoticArmor('Titan')" elevation="7" rounded
+        >Random Titan</v-btn
+      >
+      <h3>Class: {{ HuntTitWar }}</h3>
       <h3>Exotic Armor: {{ ExoticArmor }}</h3>
     </div>
   </v-container>
@@ -39,6 +48,7 @@ export default Vue.extend({
     return {
       DisadvantageName: null,
       DisadvantageDesc: null,
+      HuntTitWar: null,
       ExoticArmor: null,
     };
   },
@@ -50,34 +60,42 @@ export default Vue.extend({
       this.DisadvantageDesc = jsondata.Disadvantages.Explanation[disleng];
     },
     RandomHunterArmor: function (event) {
-      return jsondata.Exotic.Armor.Hunter[getRandomInt(jsondata.Exotic.Armor.Hunter.length)];
+      return jsondata.Exotic.Armor.Hunter[
+        getRandomInt(jsondata.Exotic.Armor.Hunter.length)
+      ];
     },
     RandomTitanArmor: function (event) {
-      return jsondata.Exotic.Armor.Titan[getRandomInt(jsondata.Exotic.Armor.Titan.length)];
+      return jsondata.Exotic.Armor.Titan[
+        getRandomInt(jsondata.Exotic.Armor.Titan.length)
+      ];
     },
     RandomWarlockArmor: function (event) {
-      return jsondata.Exotic.Armor.Warlock[getRandomInt(jsondata.Exotic.Armor.Warlock.length)];
+      return jsondata.Exotic.Armor.Warlock[
+        getRandomInt(jsondata.Exotic.Armor.Warlock.length)
+      ];
     },
     RandomExoticArmor: function (exoticclass: string) {
+      if (exoticclass == "ALL") {
+        const RandomALL = [];
+        RandomALL.push("Hunter");
+        RandomALL.push("Titan");
+        RandomALL.push("Warlock");
+        const RandomClassNumber = getRandomInt(3);
+        const Class = RandomALL[RandomClassNumber];
 
-      if (exoticclass == "ALL"){
-        console.log("ALL")
-        this.ExoticArmor = "All"
+        this.HuntTitWar = Class;
 
-      }else if (exoticclass == "Hunter"){
-        console.log("Hunter")
-
-      }else if (exoticclass == "Titan"){
-        console.log("Titan")
-
-      }else if (exoticclass == "Warlock"){
-        console.log("Warlock")
-
-      }else{
-        console.log("ERROR")
+        // console.log(Class);
+      } else if (exoticclass == "Hunter") {
+        console.log("Hunter");
+      } else if (exoticclass == "Titan") {
+        console.log("Titan");
+      } else if (exoticclass == "Warlock") {
+        console.log("Warlock");
+      } else {
+        console.log("ERROR");
       }
-
-    }
+    },
   },
 });
 </script>
