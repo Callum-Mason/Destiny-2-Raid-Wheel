@@ -28,9 +28,7 @@
           </v-btn>
         </div>
         <br />
-        <br />
-        <br />
-        <br />
+
         <div class="Disadvantage">
           <h2>Random Disadvantage</h2>
           <v-btn v-on:click="RandomDisadvantage" elevation="7" rounded>
@@ -42,22 +40,10 @@
         <br />
         <div class="Exotic">
           <h2>Random Exotic Armor</h2>
-          <v-btn v-on:click="RandomExoticArmor('ALL')" elevation="7" rounded>
-            <v-icon>mdi-autorenew</v-icon>Random All Classes </v-btn
-          ><br />
-          <v-btn v-on:click="RandomExoticArmor('Hunter')" elevation="7" rounded>
-            <v-icon>mdi-autorenew</v-icon>Random Hunter </v-btn
-          ><br />
-          <v-btn
-            v-on:click="RandomExoticArmor('Warlock')"
-            elevation="7"
-            rounded
-          >
-            <v-icon>mdi-autorenew</v-icon>Random Warlock </v-btn
-          ><br />
-          <v-btn v-on:click="RandomExoticArmor('Titan')" elevation="7" rounded>
-            <v-icon>mdi-autorenew</v-icon>Random Titan
-          </v-btn>
+          <v-checkbox v-model="ClassCheckBox" label="Hunter" value="Hunter" ></v-checkbox>
+          <v-checkbox v-model="ClassCheckBox" label="Warlock" value="Warlock" ></v-checkbox>
+          <v-checkbox v-model="ClassCheckBox" label="Titan" value="Titan" ></v-checkbox>
+          <v-btn v-on:click="RandomExoticArmor('ALL')" elevation="7" rounded> <v-icon>mdi-autorenew</v-icon>Random All Classes </v-btn><br />
           <h3>Class: {{ HuntTitWar }}</h3>
           <h3>Exotic Armor: {{ ExoticArmor }}</h3>
         </div>
@@ -121,6 +107,7 @@ export default Vue.extend({
       JSONDATA: jsondata,
       drawer: false,
       group: null,
+      ClassCheckBox: [],
     };
   },
   watch: {
@@ -158,11 +145,8 @@ export default Vue.extend({
     },
     RandomExoticArmor: function (exoticclass: string) {
       if (exoticclass == "ALL") {
-        const RandomALL = [];
-        RandomALL.push("Hunter");
-        RandomALL.push("Titan");
-        RandomALL.push("Warlock");
-        const RandomClassNumber = getRandomInt(3);
+        const RandomALL = this.ClassCheckBox
+        const RandomClassNumber = getRandomInt(this.ClassCheckBox.length);
         const Class = RandomALL[RandomClassNumber];
 
         if (Class == "Hunter") {
