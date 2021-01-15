@@ -23,8 +23,9 @@
             "
             elevation="7"
             rounded
-            ><v-icon>mdi-autorenew</v-icon>Randomise All</v-btn
           >
+            <v-icon>mdi-autorenew</v-icon>Randomise All
+          </v-btn>
         </div>
         <br />
         <br />
@@ -32,36 +33,40 @@
         <br />
         <div class="Disadvantage">
           <h2>Random Disadvantage</h2>
-          <v-btn v-on:click="RandomDisadvantage" elevation="7" rounded
-            ><v-icon>mdi-autorenew</v-icon>Random Disadvantage</v-btn
-          >
+          <v-btn v-on:click="RandomDisadvantage" elevation="7" rounded>
+            <v-icon>mdi-autorenew</v-icon>Random Disadvantage
+          </v-btn>
           <h3>Name : {{ DisadvantageName }}</h3>
           <h3>Description : {{ DisadvantageDesc }}</h3>
         </div>
         <br />
         <div class="Exotic">
           <h2>Random Exotic Armor</h2>
-          <v-btn v-on:click="RandomExoticArmor('ALL')" elevation="7" rounded
-            ><v-icon>mdi-autorenew</v-icon>Random All Classes</v-btn
+          <v-btn v-on:click="RandomExoticArmor('ALL')" elevation="7" rounded>
+            <v-icon>mdi-autorenew</v-icon>Random All Classes </v-btn
           ><br />
-          <v-btn v-on:click="RandomExoticArmor('Hunter')" elevation="7" rounded
-            ><v-icon>mdi-autorenew</v-icon>Random Hunter</v-btn
+          <v-btn v-on:click="RandomExoticArmor('Hunter')" elevation="7" rounded>
+            <v-icon>mdi-autorenew</v-icon>Random Hunter </v-btn
           ><br />
-          <v-btn v-on:click="RandomExoticArmor('Warlock')" elevation="7" rounded
-            ><v-icon>mdi-autorenew</v-icon>Random Warlock</v-btn
-          ><br />
-          <v-btn v-on:click="RandomExoticArmor('Titan')" elevation="7" rounded
-            ><v-icon>mdi-autorenew</v-icon>Random Titan</v-btn
+          <v-btn
+            v-on:click="RandomExoticArmor('Warlock')"
+            elevation="7"
+            rounded
           >
+            <v-icon>mdi-autorenew</v-icon>Random Warlock </v-btn
+          ><br />
+          <v-btn v-on:click="RandomExoticArmor('Titan')" elevation="7" rounded>
+            <v-icon>mdi-autorenew</v-icon>Random Titan
+          </v-btn>
           <h3>Class: {{ HuntTitWar }}</h3>
           <h3>Exotic Armor: {{ ExoticArmor }}</h3>
         </div>
         <br />
         <div class="Random Weapon Type">
           <h2>Random Weapon Type</h2>
-          <v-btn v-on:click="RandomWeaponType" elevation="7" rounded
-            ><v-icon>mdi-autorenew</v-icon>Random Weapon Type</v-btn
-          >
+          <v-btn v-on:click="RandomWeaponType" elevation="7" rounded>
+            <v-icon>mdi-autorenew</v-icon>Random Weapon Type
+          </v-btn>
           <h3>Energy : {{ WeaponTypeEnergy }}</h3>
           <h3>Kinetic : {{ WeaponTypeKinetic }}</h3>
           <h3>Power: {{ WeaponTypePower }}</h3>
@@ -69,15 +74,18 @@
         <br />
         <div class="Random Exotic Weapon">
           <h2>Random Exotic Weapon</h2>
-          <v-btn v-on:click="RandomExoticWeapon" elevation="7" rounded
-            ><v-icon>mdi-autorenew</v-icon>Random Exotic Weapon</v-btn
-          >
+          <v-btn v-on:click="RandomExoticWeapon" elevation="7" rounded>
+            <v-icon>mdi-autorenew</v-icon>Random Exotic Weapon
+          </v-btn>
           <h3>Weapon : {{ ExoticWeapon }}</h3>
         </div>
       </v-container>
     </v-main>
     <v-footer app>
-      <v-btn elevation="7" rounded @click.stop="drawer = !drawer">View JSON</v-btn>
+      <v-btn elevation="7" rounded @click.stop="drawer = !drawer"
+        >View JSON</v-btn
+      >
+      <!-- <v-btn on:click="changeLocale()" elevation="7" rounded>Change Locale</v-btn> -->
       <!-- -->
     </v-footer>
   </v-app>
@@ -122,6 +130,9 @@ export default Vue.extend({
   },
 
   methods: {
+    changeLocale() {
+      this.$vuetify.lang.current = "hu";
+    },
     RandomDisadvantage: function () {
       const disleng = getRandomInt(jsondata.Disadvantages.Name.length);
       this.DisadvantageName = jsondata.Disadvantages.Name[disleng];
