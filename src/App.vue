@@ -1,13 +1,15 @@
 <template>
   <v-app>
+    <v-system-bar  height="20">Destiny 2 Loadout Randomiser</v-system-bar>
+    <v-app-bar dense dark fixed tile height="50" clipped-right>
+      <v-toolbar-title>Destiny 2 Loadout Randomiser</v-toolbar-title>
+    </v-app-bar>
     <v-navigation-drawer width="75%" v-model="drawer" right temporary app style="padding-left: 2.5%">
       <navcomp />
     </v-navigation-drawer>
-    <v-main>
+    <v-main style="padding-left: 1.5%">
       <v-container fluid>
         <br />
-
-
         <div class="Random All">
           <h2><v-btn v-on:click=" RandomDisadvantage(); RandomExoticArmor(); RandomWeaponType(); RandomExoticWeapon(); " elevation="7" rounded> <v-icon>mdi-autorenew</v-icon></v-btn> Randomise All</h2>
         </div>
@@ -18,6 +20,7 @@
 
         <div class="Disadvantage">
           <h2><v-btn v-on:click="RandomDisadvantage" elevation="7" rounded><v-icon>mdi-autorenew</v-icon></v-btn>Random Disadvantage</h2>
+          <br>
           <h3>Name : {{ DisadvantageName }}</h3>
           <h3>Description : {{ DisadvantageDesc }}</h3>
         </div>
@@ -31,17 +34,18 @@
           <v-container>
             <v-row>
               <v-col>
-                  <v-checkbox v-model="ClassCheckBox" label="Hunter" value="Hunter">
+                  <v-checkbox v-model="ClassCheckBox" color="grey darken-4" label="Hunter" value="Hunter">
                   </v-checkbox>
               </v-col>
               <v-col>
-                  <v-checkbox v-model="ClassCheckBox" label="Warlock" value="Warlock">
+                  <v-checkbox v-model="ClassCheckBox" color="grey darken-4" label="Warlock" value="Warlock">
                   </v-checkbox>
               </v-col>
               <v-col>
-                  <v-checkbox v-model="ClassCheckBox" label="Titan" value="Titan">
+                  <v-checkbox v-model="ClassCheckBox" color="grey darken-4" label="Titan" value="Titan">
                   </v-checkbox>
               </v-col>
+              <v-spacer></v-spacer>
               <v-spacer></v-spacer>
               <v-spacer></v-spacer>
               <v-spacer></v-spacer>
@@ -175,4 +179,11 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="stylus" scoped></style>
+<style scoped>
+
+.v-label{
+  color: white;
+}
+
+
+</style>
