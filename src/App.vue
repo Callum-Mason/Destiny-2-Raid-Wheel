@@ -18,8 +18,8 @@
             v-on:click="
               RandomDisadvantage();
               RandomExoticArmor('ALL');
-              RandomWeponType();
-              RandomExoticWepon();
+              RandomWeaponType();
+              RandomExoticWeapon();
             "
             elevation="7"
             rounded
@@ -57,22 +57,22 @@
           <h3>Exotic Armor: {{ ExoticArmor }}</h3>
         </div>
         <br />
-        <div class="Random Wepon Type">
-          <h2>Random Wepon Type</h2>
-          <v-btn v-on:click="RandomWeponType" elevation="7" rounded
-            ><v-icon>mdi-autorenew</v-icon>Random Wepon Type</v-btn
+        <div class="Random Weapon Type">
+          <h2>Random Weapon Type</h2>
+          <v-btn v-on:click="RandomWeaponType" elevation="7" rounded
+            ><v-icon>mdi-autorenew</v-icon>Random Weapon Type</v-btn
           >
-          <h3>Energy : {{ WeponTypeEnergy }}</h3>
-          <h3>Kinetic : {{ WeponTypeKinetic }}</h3>
-          <h3>Power: {{ WeponTypePower }}</h3>
+          <h3>Energy : {{ WeaponTypeEnergy }}</h3>
+          <h3>Kinetic : {{ WeaponTypeKinetic }}</h3>
+          <h3>Power: {{ WeaponTypePower }}</h3>
         </div>
         <br />
-        <div class="Random Exotic Wepon">
-          <h2>Random Exotic Wepon</h2>
-          <v-btn v-on:click="RandomExoticWepon" elevation="7" rounded
-            ><v-icon>mdi-autorenew</v-icon>Random Exotic Wepon</v-btn
+        <div class="Random Exotic Weapon">
+          <h2>Random Exotic Weapon</h2>
+          <v-btn v-on:click="RandomExoticWeapon" elevation="7" rounded
+            ><v-icon>mdi-autorenew</v-icon>Random Exotic Weapon</v-btn
           >
-          <h3>Wepon : {{ ExoticWepon }}</h3>
+          <h3>Weapon : {{ ExoticWeapon }}</h3>
         </div>
       </v-container>
     </v-main>
@@ -106,10 +106,10 @@ export default Vue.extend({
       DisadvantageDesc: null,
       HuntTitWar: null,
       ExoticArmor: null,
-      WeponTypeEnergy: null,
-      WeponTypeKinetic: null,
-      WeponTypePower: null,
-      ExoticWepon: null,
+      WeaponTypeEnergy: null,
+      WeaponTypeKinetic: null,
+      WeaponTypePower: null,
+      ExoticWeapon: null,
       JSONDATA: jsondata,
       drawer: false,
       group: null,
@@ -127,23 +127,23 @@ export default Vue.extend({
       this.DisadvantageName = jsondata.Disadvantages.Name[disleng];
       this.DisadvantageDesc = jsondata.Disadvantages.Explanation[disleng];
     },
-    RandomWeponType: function (event) {
-      this.WeponTypeEnergy =
-        jsondata.WeponTypes.energy[
-          getRandomInt(jsondata.WeponTypes.energy.length)
+    RandomWeaponType: function (event) {
+      this.WeaponTypeEnergy =
+        jsondata.WeaponTypes.energy[
+          getRandomInt(jsondata.WeaponTypes.energy.length)
         ];
-      this.WeponTypeKinetic =
-        jsondata.WeponTypes.Kinetic[
-          getRandomInt(jsondata.WeponTypes.Kinetic.length)
+      this.WeaponTypeKinetic =
+        jsondata.WeaponTypes.Kinetic[
+          getRandomInt(jsondata.WeaponTypes.Kinetic.length)
         ];
-      this.WeponTypePower =
-        jsondata.WeponTypes.Power[
-          getRandomInt(jsondata.WeponTypes.Power.length)
+      this.WeaponTypePower =
+        jsondata.WeaponTypes.Power[
+          getRandomInt(jsondata.WeaponTypes.Power.length)
         ];
     },
-    RandomExoticWepon: function (event) {
-      this.ExoticWepon =
-        jsondata.Exotic.Wepons[getRandomInt(jsondata.Exotic.Wepons.length)];
+    RandomExoticWeapon: function (event) {
+      this.ExoticWeapon =
+        jsondata.Exotic.Weapons[getRandomInt(jsondata.Exotic.Weapons.length)];
     },
     RandomExoticArmor: function (exoticclass: string) {
       if (exoticclass == "ALL") {

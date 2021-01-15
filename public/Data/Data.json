@@ -1,5 +1,5 @@
 {
-    "WeponTypes": {
+    "WeaponTypes": {
         "energy": [
             "Scout Rifle",
             "Pulse Rifle",
@@ -137,7 +137,7 @@
                 "Winter's Guile"
             ]
         },
-        "Wepons": [
+        "Weapons": [
             "Sweet Business",
             "Strum",
             "Vigilance Wing",
