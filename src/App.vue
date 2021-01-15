@@ -83,15 +83,46 @@ export default Vue.extend({
         const RandomClassNumber = getRandomInt(3);
         const Class = RandomALL[RandomClassNumber];
 
-        this.HuntTitWar = Class;
+        if (Class == "Hunter") {
+          this.ExoticArmor =
+            jsondata.Exotic.Armor.Hunter[
+              getRandomInt(jsondata.Exotic.Armor.Hunter.length)
+            ];
+        } else if (Class == "Titan") {
+          this.ExoticArmor =
+            jsondata.Exotic.Armor.Titan[
+              getRandomInt(jsondata.Exotic.Armor.Titan.length)
+            ];
+        } else if (Class == "Warlock") {
+          this.ExoticArmor =
+            jsondata.Exotic.Armor.Warlock[
+              getRandomInt(jsondata.Exotic.Armor.Warlock.length)
+            ];
+        } else {
+          console.log("ERROR");
+        }
+
+        this.HuntTitWar = Class; //Sets The Class
 
         // console.log(Class);
       } else if (exoticclass == "Hunter") {
-        console.log("Hunter");
+        this.HuntTitWar = exoticclass;
+        this.ExoticArmor =
+          jsondata.Exotic.Armor.Hunter[
+            getRandomInt(jsondata.Exotic.Armor.Hunter.length)
+          ];
       } else if (exoticclass == "Titan") {
-        console.log("Titan");
+        this.HuntTitWar = exoticclass;
+        this.ExoticArmor =
+          jsondata.Exotic.Armor.Titan[
+            getRandomInt(jsondata.Exotic.Armor.Titan.length)
+          ];
       } else if (exoticclass == "Warlock") {
-        console.log("Warlock");
+        this.HuntTitWar = exoticclass;
+        this.ExoticArmor =
+          jsondata.Exotic.Armor.Warlock[
+            getRandomInt(jsondata.Exotic.Armor.Warlock.length)
+          ];
       } else {
         console.log("ERROR");
       }
