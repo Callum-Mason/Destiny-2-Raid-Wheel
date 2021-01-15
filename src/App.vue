@@ -1,34 +1,16 @@
 <template>
   <v-app>
-    <v-navigation-drawer width="75%" v-model="drawer" right temporary app>
-      <h1>JSON View</h1>
-
-      <div>
-        <tree-view :data="JSONDATA" :options="{ maxDepth: 4 }"></tree-view>
-      </div>
-
-      <!-- -->
+    <v-navigation-drawer width="75%" v-model="drawer" right temporary app style="padding-left: 2.5%">
+      <navcomp/>
     </v-navigation-drawer>
     <v-main>
       <v-container fluid>
         <br />
         <div class="Random All">
           <h2>Randomise All</h2>
-          <v-btn
-            v-on:click="
-              RandomDisadvantage();
-              RandomExoticArmor('ALL');
-              RandomWeaponType();
-              RandomExoticWeapon();
-            "
-            elevation="7"
-            rounded
-          >
-            <v-icon>mdi-autorenew</v-icon>Randomise All
-          </v-btn>
+          <v-btn v-on:click=" RandomDisadvantage(); RandomExoticArmor('ALL'); RandomWeaponType(); RandomExoticWeapon(); " elevation="7" rounded><v-icon>mdi-autorenew</v-icon>Randomise All</v-btn>
         </div>
         <br />
-
         <div class="Disadvantage">
           <h2>Random Disadvantage</h2>
           <v-btn v-on:click="RandomDisadvantage" elevation="7" rounded>
@@ -69,8 +51,7 @@
     </v-main>
     <v-footer app>
       <v-btn elevation="7" rounded @click.stop="drawer = !drawer"
-        >View JSON</v-btn
-      >
+        >View JSON</v-btn>
       <!-- <v-btn on:click="changeLocale()" elevation="7" rounded>Change Locale</v-btn> -->
       <!-- -->
     </v-footer>
@@ -80,8 +61,7 @@
 <script lang="ts">
 import Vue from "vue";
 import jsondata from "../public/Data/Data.json";
-import TreeView from "vue-json-tree-view";
-Vue.use(TreeView);
+import navcomp from "./components/nav.vue"
 // import HelloWorld from "./components/HelloWorld.vue";
 
 function getRandomInt(max: number) {
@@ -92,7 +72,7 @@ export default Vue.extend({
   // name: "App",
 
   components: {
-    // HelloWorld
+    navcomp
   },
   data() {
     return {
@@ -117,9 +97,6 @@ export default Vue.extend({
   },
 
   methods: {
-    changeLocale() {
-      this.$vuetify.lang.current = "hu";
-    },
     RandomDisadvantage: function () {
       const disleng = getRandomInt(jsondata.Disadvantages.Name.length);
       this.DisadvantageName = jsondata.Disadvantages.Name[disleng];
