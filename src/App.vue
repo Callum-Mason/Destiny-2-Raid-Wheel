@@ -26,7 +26,7 @@
       <h3>Class: {{ HuntTitWar }}</h3>
       <h3>Exotic Armor: {{ ExoticArmor }}</h3>
     </div>
-    <br>
+    <br />
     <div class="Random Wepon Type">
       <h2>Random Wepon Type</h2>
       <v-btn v-on:click="RandomWeponType" elevation="7" rounded
@@ -35,6 +35,14 @@
       <h3>Energy : {{ WeponTypeEnergy }}</h3>
       <h3>Kinetic : {{ WeponTypeKinetic }}</h3>
       <h3>Power: {{ WeponTypePower }}</h3>
+    </div>
+    <br />
+    <div class="Random Exotic Wepon">
+      <h2>Random Exotic Wepon</h2>
+      <v-btn v-on:click="RandomExoticWepon" elevation="7" rounded
+        >Random Exotic Wepon</v-btn
+      >
+      <h3>Wepon : {{ ExoticWepon }}</h3>
     </div>
   </v-container>
 </template>
@@ -63,6 +71,7 @@ export default Vue.extend({
       WeponTypeEnergy: null,
       WeponTypeKinetic: null,
       WeponTypePower: null,
+      ExoticWepon: null,
     };
   },
 
@@ -73,9 +82,22 @@ export default Vue.extend({
       this.DisadvantageDesc = jsondata.Disadvantages.Explanation[disleng];
     },
     RandomWeponType: function (event) {
-      this.WeponTypeEnergy = jsondata.WeponTypes.energy[getRandomInt(jsondata.WeponTypes.energy.length)]
-      this.WeponTypeKinetic = jsondata.WeponTypes.Kinetic[getRandomInt(jsondata.WeponTypes.Kinetic.length)]
-      this.WeponTypePower = jsondata.WeponTypes.Power[getRandomInt(jsondata.WeponTypes.Power.length)]
+      this.WeponTypeEnergy =
+        jsondata.WeponTypes.energy[
+          getRandomInt(jsondata.WeponTypes.energy.length)
+        ];
+      this.WeponTypeKinetic =
+        jsondata.WeponTypes.Kinetic[
+          getRandomInt(jsondata.WeponTypes.Kinetic.length)
+        ];
+      this.WeponTypePower =
+        jsondata.WeponTypes.Power[
+          getRandomInt(jsondata.WeponTypes.Power.length)
+        ];
+    },
+    RandomExoticWepon: function (event) {
+      this.ExoticWepon =
+        jsondata.Exotic.Wepons[getRandomInt(jsondata.Exotic.Wepons.length)];
     },
     RandomExoticArmor: function (exoticclass: string) {
       if (exoticclass == "ALL") {
