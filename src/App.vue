@@ -1,5 +1,24 @@
 <template>
   <v-container class="grey lighten-5">
+    <br />
+    <div class="Random All">
+      <h2>Randomise All</h2>
+      <v-btn
+        v-on:click="
+          RandomDisadvantage();
+          RandomExoticArmor('ALL');
+          RandomWeponType();
+          RandomExoticWepon();
+        "
+        elevation="7"
+        rounded
+        >Randomise All</v-btn
+      >
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
     <div class="Disadvantage">
       <h2>Random Disadvantage</h2>
       <v-btn v-on:click="RandomDisadvantage" elevation="7" rounded
