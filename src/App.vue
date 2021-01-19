@@ -2,11 +2,18 @@
   <v-app>
     <v-system-bar  height="20">Destiny 2 Loadout Randomiser</v-system-bar>
     <v-app-bar dense dark fixed tile height="50" clipped-right>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Destiny 2 Loadout Randomiser</v-toolbar-title>
     </v-app-bar>
-    <v-navigation-drawer width="75%" v-model="drawer" right temporary app style="padding-left: 2.5%">
-      <navcomp />
+
+    <v-navigation-drawer width="75%" v-model="JSONVIEW" right temporary app style="padding-left: 2.5%">
+      <jsoncomp />
     </v-navigation-drawer>
+    <v-navigation-drawer width="10%" v-model="drawer" temporary app >
+      <navcomp/>
+    </v-navigation-drawer>
+
+
     <v-main style="padding-left: 1.5%">
       <v-container fluid>
         <br />
@@ -34,15 +41,15 @@
           <v-container>
             <v-row>
               <v-col>
-                  <v-checkbox v-model="ClassCheckBox" color="grey darken-4" label="Hunter" value="Hunter">
+                  <v-checkbox v-model="ClassCheckBox" color="white darken-4" label="Hunter" value="Hunter">
                   </v-checkbox>
               </v-col>
               <v-col>
-                  <v-checkbox v-model="ClassCheckBox" color="grey darken-4" label="Warlock" value="Warlock">
+                  <v-checkbox v-model="ClassCheckBox" color="white darken-4" label="Warlock" value="Warlock">
                   </v-checkbox>
               </v-col>
               <v-col>
-                  <v-checkbox v-model="ClassCheckBox" color="grey darken-4" label="Titan" value="Titan">
+                  <v-checkbox v-model="ClassCheckBox" color="white darken-4" label="Titan" value="Titan">
                   </v-checkbox>
               </v-col>
               <v-spacer></v-spacer>
@@ -72,7 +79,7 @@
       </v-container>
     </v-main>
     <v-footer app>
-      <v-btn elevation="7" rounded @click.stop="drawer = !drawer">
+      <v-btn elevation="7" rounded @click.stop="JSONVIEW = !JSONVIEW">
         View JSON
       </v-btn>
       <!-- <v-btn on:click="changeLocale()" elevation="7" rounded>Change Locale</v-btn> -->
@@ -84,6 +91,7 @@
 <script lang="ts">
 import Vue from "vue";
 import jsondata from "../public/Data/Data.json";
+import jsoncomp from "./components/jsoncomp.vue";
 import navcomp from "./components/nav.vue";
 // import HelloWorld from "./components/HelloWorld.vue";
 
@@ -95,6 +103,7 @@ export default Vue.extend({
   // name: "App",
 
   components: {
+    jsoncomp,
     navcomp,
   },
   data() {
@@ -108,6 +117,7 @@ export default Vue.extend({
       WeaponTypePower: null,
       ExoticWeapon: null,
       JSONDATA: jsondata,
+      JSONVIEW: false,
       drawer: false,
       group: null,
       ClassCheckBox: [],
@@ -119,6 +129,7 @@ export default Vue.extend({
   watch: {
     group() {
       this.drawer = false;
+      this.JSONVIEW = false;
     },
   },
 
@@ -180,10 +191,6 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-
-.v-label{
-  color: white;
-}
 
 
 </style>
