@@ -65,7 +65,8 @@
             "Big Big Chungus",
             "Who? What? Where?",
             "Charity",
-            "Season Freak"
+            "Season Freak",
+            "What am i doing?"
         ],
         "Explanation": [
             "No Disadvantage",
@@ -98,7 +99,8 @@
             "Listen to Big chungus for the remaining raid",
             "Turn off HUD",
             "Delete next encounter's rewards",
-            "Entire loadout is from the same season"
+            "Entire loadout is from the same season",
+            "Choose someone who will narrorate you. you are only allowed to do what he 'Narrorates'"
         ]
     },
     "Exotic": {
@@ -273,6 +275,22 @@
             "No Time To Explain",
             "Salvation's Grip",
             "The Lament"
+        ]
+    },
+    "Drink": {
+        "Drink": [
+            "Take a shot",
+            "Take 5 sips",
+            "Take 10 sips",
+            "Play odds with someone else (number needs to be lower than 6, reverse is allowed)",
+            "Down your drink",
+            "Take 2 shots",
+            "Choose someone to take a shot",
+            "Get some water",
+            "Choose someone to take 10 sips",
+            "Make 2 players play odss (number needs to be lower than 6, reverse is allowed)",
+            "Choose a player you will be bound to. (he drinks, you drink. you drink, he doesnt drink)",
+            "If krezzy gets this, Switch with yo girl"
         ]
     }
 }

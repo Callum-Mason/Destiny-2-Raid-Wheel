@@ -2,7 +2,7 @@
   <v-app>
     <v-system-bar  height="20">Destiny 2 Loadout Randomiser</v-system-bar>
     <v-app-bar dense dark fixed tile height="50" clipped-right>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon> -->
       <v-toolbar-title>Destiny 2 Loadout Randomiser</v-toolbar-title>
     </v-app-bar>
 
@@ -10,7 +10,7 @@
       <jsoncomp />
     </v-navigation-drawer>
     <v-navigation-drawer width="10%" v-model="drawer" temporary app >
-      <navcomp/>
+      <!-- <navcomp/> -->
     </v-navigation-drawer>
 
 
@@ -30,6 +30,15 @@
           <br>
           <h3>Name : {{ DisadvantageName }}</h3>
           <h3>Description : {{ DisadvantageDesc }}</h3>
+        </div>
+
+
+        <br />
+
+        <div class="Drinks">
+          <h2><v-btn v-on:click="RandomDrink" elevation="7" rounded><v-icon>mdi-autorenew</v-icon></v-btn>Random Drink</h2>
+          <br>
+          <h3>Name : {{ RandomDrinkName }}</h3>
         </div>
 
 
@@ -92,7 +101,7 @@
 import Vue from "vue";
 import jsondata from "../public/Data/Data.json";
 import jsoncomp from "./components/jsoncomp.vue";
-import navcomp from "./components/nav.vue";
+// import navcomp from "./components/nav.vue";
 // import HelloWorld from "./components/HelloWorld.vue";
 
 function getRandomInt(max: number) {
@@ -104,11 +113,12 @@ export default Vue.extend({
 
   components: {
     jsoncomp,
-    navcomp,
+    // navcomp,
   },
   data() {
     return {
       DisadvantageName: null,
+      RandomDrinkName: null,
       DisadvantageDesc: null,
       HuntTitWar: null,
       ExoticArmor: null,
@@ -138,6 +148,10 @@ export default Vue.extend({
       const disleng = getRandomInt(jsondata.Disadvantages.Name.length);
       this.DisadvantageName = jsondata.Disadvantages.Name[disleng];
       this.DisadvantageDesc = jsondata.Disadvantages.Explanation[disleng];
+    },
+    RandomDrink: function () {
+      const disleng = getRandomInt(jsondata.Drink.Drink.length);
+      this.RandomDrinkName = jsondata.Drink.Drink[disleng];
     },
     RandomWeaponType: function (event) {
       this.WeaponTypeEnergy =
