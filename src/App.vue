@@ -2,15 +2,15 @@
   <v-app>
     <v-system-bar  height="20">Destiny 2 Loadout Randomiser</v-system-bar>
     <v-app-bar dense dark fixed tile height="50" clipped-right>
-      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon> -->
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Destiny 2 Loadout Randomiser</v-toolbar-title>
     </v-app-bar>
 
     <v-navigation-drawer width="75%" v-model="JSONVIEW" right temporary app style="padding-left: 2.5%">
       <jsoncomp />
     </v-navigation-drawer>
-    <v-navigation-drawer width="10%" v-model="drawer" temporary app >
-      <!-- <navcomp/> -->
+    <v-navigation-drawer width="45%" v-model="drawer" right temporary app style="padding-left: 2.5%" >
+      <drinkrules/>
     </v-navigation-drawer>
 
 
@@ -18,12 +18,10 @@
       <v-container fluid>
         <br />
         <div class="Random All">
-          <h2><v-btn v-on:click=" RandomDisadvantage(); RandomExoticArmor(); RandomWeaponType(); RandomExoticWeapon(); " elevation="7" rounded> <v-icon>mdi-autorenew</v-icon></v-btn> Randomise All</h2>
+          <h2><v-btn v-on:click=" RandomDisadvantage(); RandomExoticArmor(); RandomWeaponType(); RandomExoticWeapon(); RandomDrink() " elevation="7" rounded> <v-icon>mdi-autorenew</v-icon></v-btn> Randomise All</h2>
         </div>
 
-
         <br />
-
 
         <div class="Disadvantage">
           <h2><v-btn v-on:click="RandomDisadvantage" elevation="7" rounded><v-icon>mdi-autorenew</v-icon></v-btn>Random Disadvantage</h2>
@@ -91,6 +89,9 @@
       <v-btn elevation="7" rounded @click.stop="JSONVIEW = !JSONVIEW">
         View JSON
       </v-btn>
+      <v-btn elevation="7" rounded @click.stop="drawer = !drawer">
+        View Drinking Rules
+      </v-btn>
       <!-- <v-btn on:click="changeLocale()" elevation="7" rounded>Change Locale</v-btn> -->
       <!-- -->
     </v-footer>
@@ -101,6 +102,7 @@
 import Vue from "vue";
 import jsondata from "../public/Data/Data.json";
 import jsoncomp from "./components/jsoncomp.vue";
+import drinkrules from "./components/drinkrules.vue";
 // import navcomp from "./components/nav.vue";
 // import HelloWorld from "./components/HelloWorld.vue";
 
@@ -114,6 +116,7 @@ export default Vue.extend({
   components: {
     jsoncomp,
     // navcomp,
+    drinkrules
   },
   data() {
     return {
