@@ -2,7 +2,7 @@
   <v-app>
     <v-system-bar  height="20">Destiny 2 Loadout Randomiser</v-system-bar>
     <v-app-bar dense dark fixed tile height="50" clipped-right>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon> -->
       <v-toolbar-title>Destiny 2 Loadout Randomiser</v-toolbar-title>
     </v-app-bar>
 
