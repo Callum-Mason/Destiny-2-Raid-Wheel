@@ -1,7 +1,10 @@
 {
   "name": "destiny2raidwheel",
-  "version": "0.1.0",
+  "description": "Raid randomiser for Destiny 2",
+  "author": "Callum Mason",
+  "version": "1.3.0",
   "private": false,
+  "homepage": "https://github.com/Callum-Mason/Destiny-2-Raid-Wheel",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
