@@ -15,7 +15,7 @@
     <v-divider></v-divider>
     <v-list>
       <br />
-      <v-list-item  link>
+      <v-list-item link>
         <v-list-icon>
           <v-icon>code-json</v-icon>
         </v-list-icon>
@@ -23,7 +23,7 @@
           <v-list-item-title>View JSON</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-      <v-list-item  link>
+      <v-list-item link>
         <v-list-icon>
           <v-icon>mdi-code-json</v-icon>
         </v-list-icon>
@@ -52,7 +52,7 @@ export default {
   data() {
     return {
       JSONVIEW: false,
-      RandomProfilePic: null,
+      RandomProfilePic: null
     };
   },
   methods: {
