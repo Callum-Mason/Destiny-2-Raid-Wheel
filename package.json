@@ -16,7 +16,7 @@
   },
   "main": "background.js",
   "dependencies": {
-    "core-js": "^3.6.5",
+    "core-js": "^3.11.0",
     "electron": ">=11.4.4",
     "electron-builder-squirrel-windows": "^22.10.4",
     "roboto-fontface": "*",
